@@ -27,7 +27,7 @@ class Robot(commands2.TimedCommandRobot):
         This function is run when the robot is first started up and should be
         used for any initialization code.
         """
-        self.autonomousCommand: typing.Optional[commands2.Command] = None
+        self.autonomousCommand = None
 
         # Instantiate our RobotContainer.  This will perform all our button
         # bindings, and put our autonomous chooser on the dashboard.
