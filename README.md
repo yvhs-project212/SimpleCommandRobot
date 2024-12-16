@@ -9,6 +9,10 @@ When creating new robot code, it may be helpful to copy this code and change the
 
 Our imaginary robot has a wheel of emojis that it can rotate through, in order to display one of them.  A motor rotates that wheel, changing the displayed emoji.  The motor can rotate left or right.  That's it.  No drive train, no sensors, just one motor.  Very simple.
 
+Emoji robot, showing internals                  | Emoji robot with case hiding internals
+:----------------------------------------------:|:-------------------------------------:
+![Emoji robot, cutaway view](./emoji-wheel.png) | ![Emoji robot with shield case](./emoji-wheel-2.gif)
+
 
 # Electrical
 
