@@ -4,8 +4,42 @@ This repo provides sample code using the [Command Robot](https://docs.wpilib.org
 
 When creating new robot code, it may be helpful to copy this code and change the small portion that actually makes the robot do anything.
 
+# Using this repo as a template
 
-# The imaginary robot
+You may wish to download this repository in order to use it as a starting point
+for your own command-based robot.  To use this code as a template, do
+the following:
+
+* Open a Git Bash shell and go to your home directory's `repos/` subdirectory.
+* Create a new Python virtual environment in a new directory:
+  `py -3 -m venv <your-new-repo-name>`
+* Use `git` to clone this repository:
+  `git clone https://github.com/yvhs-project212/SimpleCommandRobot <your-new-repo-name>`
+* Change into that directory:
+  `cd <your-new-repo-name>`
+* Activate your virtual environment:
+  ` . bin/activate`
+* Install robotpy:
+  `py -3 -m pip install robotpy[all]`
+* Whenever you run the `robotpy` command, add the flag `--main code/`, e.g.:
+  `robotpy --main code/ sync`
+
+Now you can modify the code to make your own robot.  You don't need the emoji
+subsystem or any of its commands (you can delete them), but you'll need to
+make your own subsystems and commands.  You'll need to modify
+`robotcontainer.py`  (and possibly even `robot.py`) to reflect your robot's
+functionality.
+
+If you are just using this repository as a template for your own command-based
+robot code, that's all you need to know.  You can ignore the description of
+the example robot below.
+
+
+# As a learning example: The imaginary robot
+
+If you are not using this repo as a template but rather trying to learn
+the basics of command-base robot programming, you will first want to understand
+what kind of robot this example represents.
 
 Our imaginary robot has a wheel of emojis that it can rotate through, in order to display one of them.  A motor rotates that wheel, changing the displayed emoji.  The motor can rotate left or right.  That's it.  No drive train, no sensors, just one motor.  Very simple.
 
