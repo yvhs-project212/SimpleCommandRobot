@@ -39,5 +39,6 @@ OP = namedtuple("Data", op_data.keys())(**op_data)
 
 # Software constants, e.g. PID values, absolute encoder zero points
 sw_data = {
+    "motor_speed": 0.05,
 }
 SW = namedtuple("Data", sw_data.keys())(**sw_data)

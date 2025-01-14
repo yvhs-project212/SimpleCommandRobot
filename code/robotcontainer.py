@@ -12,7 +12,7 @@ import commands2.button
 
 from constants import OP, SW
 import subsystems.motor_ss
-from commands.motor_commands import StartMotor, StopMotor, UpdateEncoder
+from commands.motor_commands import MotorForward, MotorBackward, StopMotor, UpdateEncoder
 
 
 class RobotContainer:
@@ -47,9 +47,10 @@ class RobotContainer:
         (commands2.button.CommandJoystick or
         command2.button.CommandXboxController).
         """
-        self.stick.leftBumper().onTrue(StartMotor(self.motor_ss))
-        self.stick.rightBumper().onTrue(StopMotor(self.motor_ss))
-        self.stick.x().onTrue(UpdateEncoder(self.motor_ss))
+        self.stick.leftBumper().onTrue(MotorForward(self.motor_ss))
+        self.stick.rightBumper().onTrue(MotorBackward(self.motor_ss))
+        self.stick.x().onTrue(StopMotor(self.motor_ss))
+        self.stick.y().onTrue(UpdateEncoder(self.motor_ss))
 
     def getAutonomousCommand(self):
         return None

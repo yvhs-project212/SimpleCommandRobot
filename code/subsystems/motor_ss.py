@@ -15,9 +15,9 @@ class MotorSubsystem(commands2.Subsystem):
         # (Define what DIO port your sensor uses in constants.py)
         self.motor = phoenix6.hardware.TalonFX(ELEC.motor_CAN_ID)
 
-    def activate(self):
-        """Turn motor on at 20%"""
-        self.motor.set(0.2)
+    def activate(self, rate):
+        """Turn motor on at the given rate (-1.0 to 1.0)"""
+        self.motor.set(rate)
 
     def stop(self):
         """Turn motor off"""
@@ -27,5 +27,6 @@ class MotorSubsystem(commands2.Subsystem):
         """
         Example method that activates a subsystem actuator
         """
-        return self.motor.get_rotor_position()
+        status_signal = self.motor.get_rotor_position()
+        return status_signal.value
 
