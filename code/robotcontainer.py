@@ -4,16 +4,16 @@
 # the WPILib BSD license file in the root directory of this project.
 #
 
-import wpilib
-import wpimath.controller
+import logging
+log = logging.Logger('P212-robot')
 
+import wpilib
 import commands2
-import commands2.cmd
 import commands2.button
 
-from constants import OP, SW
-import subsystems.emoji_ss
-from commands.rotate_emojis import RotateEmojisLeft, RotateEmojisRight
+from constants import OP
+import subsystems.example_ss
+from commands.example_commands import RotateEmojisLeft, RotateEmojisRight
 
 
 class RobotContainer:
@@ -31,7 +31,7 @@ class RobotContainer:
         and commands.
         """
         # The robot's subsystems
-        self.emoji = subsystems.emoji_ss.EmojiSubsystem()
+        self.my_example_ss = subsystems.example_ss.ExampleSubsystem()
 
         # The driver's controller
         self.stick = commands2.button.CommandXboxController(OP.joystick_port)
@@ -48,8 +48,8 @@ class RobotContainer:
         (commands2.button.CommandJoystick or
         command2.button.CommandXboxController).
         """
-        # rotate emojis left when the left bumper is pressed
-        stick.leftBumper.onTrue(RotateEmojisLeft())
+        # run the example command when the left bumper is pressed
+        self.stick.leftBumper().onTrue(ExampleCommand())
 
-        # rotate emojis right when the right bumper is pressed
-        stick.rightBumper.onTrue(RotateEmojisRight())
+        # run the example command when the X button is pressed
+        self.stick.x().onTrue(ExampleCommand())

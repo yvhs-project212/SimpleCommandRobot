@@ -7,11 +7,9 @@
 
 import logging
 log = logging.Logger('P212-robot')
-import typing
 
 import wpilib
 import commands2
-import commands2.cmd
 
 import robotcontainer
 

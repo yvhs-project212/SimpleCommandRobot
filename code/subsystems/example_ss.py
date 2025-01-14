@@ -1,4 +1,6 @@
-import wpilib
+import logging
+log = logging.Logger('P212-robot')
+
 import commands2
 from constants import ELEC
 
@@ -31,4 +33,10 @@ class ExampleSubsystem(commands2.Subsystem):
         Example method that activates a subsystem actuator
         """
         self.my_motor.set(output_value)
+
+    def stop(self):
+        """
+        Example method that stops everything on the robot
+        """
+        self.my_motor.set(0.0)
 

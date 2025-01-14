@@ -4,13 +4,13 @@
 # the WPILib BSD license file in the root directory of this project.
 #
 
+import logging
+log = logging.Logger('P212-robot')
+
 import wpilib
 import commands2
-import commands2.cmd
-import wpimath.controller
 
 from subsystems.example_ss import ExampleSubsystem
-
 import constants
 
 
@@ -24,7 +24,7 @@ class TemplateCommand(commands2.Command):
         Constructor for the command object.  Assigns some instance variables.
         """
         super().__init__()
-        self.emoji_ss = emoji_ss
+        self.example_ss = example_ss
 
     def initialize(self):
         """
@@ -37,7 +37,7 @@ class TemplateCommand(commands2.Command):
         Performs the main bulk of the command.
         This method runs 50 times a second while the command is active.
         """
-        self.example_ss.do_something()
+        self.example_ss.activate_actuator()
 
     def isFinished(self):
         """
