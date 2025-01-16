@@ -6,29 +6,35 @@ When creating new robot code, it may be helpful to copy this code and change the
 
 # Using this repo as a template
 
-You may wish to download this repository in order to use it as a starting point
-for your own command-based robot.  To use this code as a template, do
-the following:
+This repo provides a script to copy a robot project template into a new
+directory, so that you can use it as a starting point for your own robot code.
+To create your own new project:
+* First, create a repo on GitHub -- either in your personal GitHub collection,
+  or possibly in the Project 212 collection of repos.  Open a web browser,
+  go to your GitHub home page (<code>https://github.com/<b><i>YourUserName</i></b></code>),
+  click on the "Repositories" tab, then click the green "New" button.  Give
+  your new repo a name, make it public, and leave it empty.  (No README, no
+  .gitignore, no license.)
+* Open a **Git Bash** shell, and change into your `repos` directory.
+* If you don't already have a copy of the SimpleCommandRobot repo, clone it
+  and change into it:
+  ```
+  git clone https://github.com/yvhs-project212/SimpleCommandRobot
+  cd SimpleCommandRobot
+  ```
+  If you do already have a copy, make sure it's current by pulling from GitHub:
+  ```
+  cd SimpleCommandRobot
+  git pull
+  ```
+* Run the `new-project.sh` script:
+  <pre><code>./new-project.sh https://github.com/<b><i>YourUserName</b></i>/<b><i>YourNewProjectName</b></i></code></pre>
+  This will create a new folder on your machine with the same name as the
+  GitHub repo.  If you want the folder to have a different name, you can give
+  the script an extra parameter:
+  <pre><code>./new-project.sh https://github.com/<b><i>YourUserName</b></i>/<b><i>YourNewProjectName  AlternateDirectoryName</b></i></code></pre>
+* Your new project should be ready for you to start editing it!
 
-* Open a Git Bash shell and go to your home directory's `repos/` subdirectory.
-* Create a new Python virtual environment in a new directory:
-  `py -3 -m venv <your-new-repo-name>`
-* Use `git` to clone this repository:
-  `git clone https://github.com/yvhs-project212/SimpleCommandRobot <your-new-repo-name>`
-* Change into that directory:
-  `cd <your-new-repo-name>`
-* Activate your virtual environment:
-  ` . bin/activate`
-* Install robotpy:
-  `py -3 -m pip install robotpy[all]`
-* Whenever you run the `robotpy` command, add the flag `--main code/`, e.g.:
-  `robotpy --main code/ sync`
-
-Now you can modify the code to make your own robot.  You don't need the emoji
-subsystem or any of its commands (you can delete them), but you'll need to
-make your own subsystems and commands.  You'll need to modify
-`robotcontainer.py`  (and possibly even `robot.py`) to reflect your robot's
-functionality.
 
 If you are just using this repository as a template for your own command-based
 robot code, that's all you need to know.  You can ignore the description of
