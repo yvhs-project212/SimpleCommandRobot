@@ -20,10 +20,10 @@ To use this repo as a template for a new robot:
   cd SimpleCommandRobot
   git pull
   ```
-* Run the `new-project.sh` script:
-  <pre><code>./new-project.sh https://github.com/<b><i>YourUserName</b></i>/<b><i>YourNewProjectName</b></i></code></pre>
+* Run the `new-project.sh` script from your `repos` directory:
+  <pre><code>./SimpleCommandRobot/new-project.sh https://github.com/<b><i>YourUserName</b></i>/<b><i>YourNewProjectName</b></i></code></pre>
   This will create a new folder on your machine with the same name as the
   GitHub repo.  If you want the folder to have a different name, you can give
   the script an extra parameter:
-  <pre><code>./new-project.sh https://github.com/<b><i>YourUserName</b></i>/<b><i>YourNewProjectName  AlternateDirectoryName</b></i></code></pre>
+  <pre><code>./SimpleCommandRobot/new-project.sh https://github.com/<b><i>YourUserName</b></i>/<b><i>YourNewProjectName  AlternateDirectoryName</b></i></code></pre>
 * Your new project should be ready for you to start editing it!
