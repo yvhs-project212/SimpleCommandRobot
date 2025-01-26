@@ -2,9 +2,17 @@ import logging
 log = logging.Logger('P212-robot')
 
 import commands2
+from wpilib import DigitalInput
 from constants import ELEC
 
+## TODO: Change this for your robot!
+##       (Import the libraries you need.)
+import rev
 
+
+## TODO: Change this for your robot!
+##       (Change the name of the subsystem.  Use InitialCapitals.)
+##
 class ExampleSubsystem(commands2.Subsystem):
     """
     This class represents an example subsystem for your robot.  Edit it to
@@ -14,14 +22,25 @@ class ExampleSubsystem(commands2.Subsystem):
         """Creates a new ExampleSubsystem"""
         super().__init__()
         # Create sensors here, and assign them to instance variables.
-        # (Define what DIO port your sensor uses in constants.py)
-        self.my_sensor = DigitalIO(ELEC.my_sensor_DIO_port)
+        # (Define the DIO port or CAN bus ID that your sensor uses in
+        #  constants.py)
+
+        ## TODO: Change this for your robot!
+        ##       (Use your sensors and constants, and change the variable name.)
+        self.my_sensor = DigitalInput(ELEC.my_sensor_DIO_port)
 
         # Create actuators here, and assign them to instance variables.
-        # (Define what DIO port your actuator uses in constants.py)
-        self.my_motor = rev.CANSparkMax(
-            ELEC.my_motor_CAN_ID, rev.CANSparkMax.MotorType.kBrushless)
+        # (Define the DIO port or CAN bus ID that your actuator uses in
+        #  constants.py)
 
+        ## TODO: Change this for your robot!
+        ##       (Use your actuators  and constants, and change the variable name.)
+        self.my_motor = rev.SparkMax(
+            ELEC.my_motor_CAN_ID, rev.SparkMax.MotorType.kBrushless)
+
+    ## TODO: Change this for your robot!
+    ##       (Write methods that define what your subsystem does.)
+    ##
     def sensor_value(self):
         """
         Example method that reads a subsystem sensor.

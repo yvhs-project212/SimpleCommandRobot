@@ -30,11 +30,20 @@ class RobotContainer:
         The container for the robot. Contains subsystems, user controls,
         and commands.
         """
-        # The robot's subsystems
-        self.my_example_ss = subsystems.example_ss.ExampleSubsystem()
-
         # The driver's controller
+        #
+        # It's best not to create controller objects anywhere else.  If your
+        # subsystem needs to access the controller, pass self.stick in to
+        # the subsystem's constructor.
+        #
         self.stick = commands2.button.CommandXboxController(OP.joystick_port)
+
+        # The robot's subsystems
+        #
+        ## TODO: Change this for your robot!
+        ##       (Use your subsystems, and change the variable name.)
+        ##
+        self.my_example_ss = subsystems.example_ss.ExampleSubsystem()
 
         # Configure the button bindings
         self.configureButtonBindings()
@@ -48,8 +57,25 @@ class RobotContainer:
         (commands2.button.CommandJoystick or
         command2.button.CommandXboxController).
         """
+        ## TODO: Change this for your robot!
+        ##       (Use your commands and subsystems, and bind them to
+        ##       buttons you choose.)
+        ##
         # run the example command when the left bumper is pressed
-        self.stick.leftBumper().onTrue(ExampleCommand())
+        self.stick.leftBumper().onTrue(ExampleCommand(self.my_example_ss))
 
         # run the example command when the X button is pressed
-        self.stick.x().onTrue(ExampleCommand())
+        self.stick.x().onTrue(ExampleCommand(self.my_example_ss))
+
+
+    def all_subsystems(self):
+        """
+        Return every attribute of this RobotContainer which is an instance of
+        a commands2.Subsystem subclass.
+        """
+        subsystems = []
+        for attribute_name in dir(self):
+            attribute = getattr(self, name)
+            if isinstance(attribute, commands2.Subsystem):
+                subsystems.append(attribute)
+        return subsystems

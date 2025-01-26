@@ -12,9 +12,7 @@ This file defines constants related to your robot.  These constants include:
  * Software constants (USB ID for driver joystick)
 """
 
-import math
 from collections import namedtuple
-import rev
 
 # Physical constants, e.g. wheel circumference, physical dimensions
 phys_data = {
@@ -28,6 +26,11 @@ MECH = namedtuple("Data", mech_data.keys())(**mech_data)
 
 # Electrical constants, e.g. current limits, CAN bus IDs, RoboRIO port numbers
 elec_data = {
+  ## TODO: remove the example constant, and add any constants needed by
+  ##       your own code, such as I/O ports or CAN bus IDs.
+  ##
+  "my_sensor_DIO_port": 7,
+  "my_motor_CAN_ID": 11,
 }
 ELEC = namedtuple("Data", elec_data.keys())(**elec_data)
 

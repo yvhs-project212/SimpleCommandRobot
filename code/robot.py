@@ -40,22 +40,28 @@ class Robot(commands2.TimedCommandRobot):
         """
         self.autonomousCommand = self.container.getAutonomousCommand()
 
-        # schedule the autonomous command (example)
+        # schedule the autonomous command, if any
         if self.autonomousCommand is not None:
             self.autonomousCommand.schedule()
         else:
-            log.warning("no auto command?")
+            log.warning("No autonomous command")
 
     def teleopInit(self) -> None:
-        # This makes sure that the autonomous stops running when
-        # teleop starts running. If you want the autonomous to
-        # continue until interrupted by another command, remove
-        # this line or comment it out.
+        # Cancel the running autonomous command, if any
         if self.autonomousCommand is not None:
             self.autonomousCommand.cancel()
 
+        # If any subsystem has a teleopInit() method, run that
+        for ss in self.container.all_subsystems():
+            if hasattr(ss, "teleopInit"):
+                ss.teleopInit()
+
     def teleopPeriodic(self) -> None:
         """This function is called periodically during operator control"""
+        # If any subsystem has a teleopPeriodic() method, run that
+        for ss in self.container.all_subsystems():
+            if hasattr(ss, "teleopPeriodic"):
+                ss.teleopPeriodic()
 
     def testInit(self) -> None:
         # Cancels all running commands at the start of test mode
