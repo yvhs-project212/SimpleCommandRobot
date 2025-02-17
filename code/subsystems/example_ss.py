@@ -1,8 +1,9 @@
 import logging
 log = logging.Logger('P212-robot')
 
-import commands2
 from wpilib import DigitalInput
+import commands2
+import rev
 from constants import ELEC
 
 ## TODO: Change this for your robot!
@@ -34,11 +35,11 @@ class ExampleSubsystem(commands2.Subsystem):
         #  constants.py)
 
         ## TODO: Change this for your robot!
-        ##       (Use your actuators  and constants, and change the variable name.)
+        ##       (Use your actuators and constants; change the variable name.)
         self.my_motor = rev.SparkMax(
             ELEC.my_motor_CAN_ID, rev.SparkMax.MotorType.kBrushless)
 
-    ## TODO: Change this for your robot!
+    ## TODO: Change these methods for your robot!
     ##       (Write methods that define what your subsystem does.)
     ##
     def sensor_value(self):

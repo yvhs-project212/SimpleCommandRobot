@@ -62,10 +62,10 @@ class RobotContainer:
         ##       buttons you choose.)
         ##
         # run the example command when the left bumper is pressed
-        self.stick.leftBumper().onTrue(ExampleCommand(self.my_example_ss))
+        self.stick.leftBumper().onTrue(TemplateCommand(self.my_example_ss))
 
         # run the example command when the X button is pressed
-        self.stick.x().onTrue(ExampleCommand(self.my_example_ss))
+        self.stick.x().onTrue(TemplateCommand(self.my_example_ss))
 
 
     def all_subsystems(self):
@@ -75,7 +75,11 @@ class RobotContainer:
         """
         subsystems = []
         for attribute_name in dir(self):
-            attribute = getattr(self, name)
+            attribute = getattr(self, attribute_name)
             if isinstance(attribute, commands2.Subsystem):
                 subsystems.append(attribute)
         return subsystems
+
+
+    def get_autonomous_command(self):
+        return None

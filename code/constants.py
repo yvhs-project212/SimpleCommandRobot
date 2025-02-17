@@ -26,7 +26,7 @@ MECH = namedtuple("Data", mech_data.keys())(**mech_data)
 
 # Electrical constants, e.g. current limits, CAN bus IDs, RoboRIO port numbers
 elec_data = {
-  ## TODO: remove the example constant, and add any constants needed by
+  ## TODO: remove the example constants, and add any constants needed by
   ##       your own code, such as I/O ports or CAN bus IDs.
   ##
   "my_sensor_DIO_port": 7,
